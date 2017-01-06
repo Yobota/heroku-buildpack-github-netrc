@@ -18,7 +18,9 @@ and instead only set it on the app where you push your code & which runs the bui
 Requirements
 ------------
 
-You'll need to make a GitHub authorization token. Here's the `curl` command you can use.
+You'll need to make a GitHub authorization token. 
+
+You can do this from the `Personal access tokens` page in your account settings (you will need to give full repo access); or Here's the `curl` command you can use.
 
 ```console
 $ curl -u 'my-read-only-user' -d '{"scopes":["repo"],"note":"GITHUB_AUTH_TOKEN for Heroku deplyoments","note_url":"https://github.com/timshadel/heroku-buildpack-github-netrc"}' https://api.github.com/authorizations  # GitHub API call
@@ -35,7 +37,7 @@ Enter host password for user 'username':  [type password]
   },
   "url": "https://api.github.com/authorizations/123456",
   "note": "GITHUB_AUTH_TOKEN for Heroku deployments.",
-  "note_url": "https://github.com/timshadel/heroku-buildpack-github-netrc",
+  "note_url": "https://github.com/Yobota/heroku-buildpack-github-netrc",
   "id": 123456,
 }
 ```
@@ -60,7 +62,7 @@ If this does not output an existing buildpack, follow the instructions at https:
 
 Next, prepend this buildpack to your list of buildpacks, so it runs before your app is built:
 
-    $ heroku buildpacks:add -i 1 https://github.com/timshadel/heroku-buildpack-github-netrc.git
+    $ heroku buildpacks:add -i 1 https://github.com/Yobota/heroku-buildpack-github-netrc.git --app <APP_NAME>
 
 Set your GitHub auth token:
 
